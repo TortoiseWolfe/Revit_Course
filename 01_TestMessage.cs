@@ -23,7 +23,7 @@ namespace Revit_Course
             //Application app = uiapp
             //Document doc = uidoc.Document;
             //Selection sel = uidoc.Selection;
-            
+            //Analysis analysis = new Analysis();
             string str = "Revit Course 01 Test Message";
             double num = .1;
             int i = 1;
@@ -34,19 +34,11 @@ namespace Revit_Course
             listAll.Add(i.ToString());
             listAll.Add(str2);
 
-            MessageBox.Show(ShowMessage(listAll));
+            MessageBox.Show(Analysis.ShowMessage(listAll));
 
             //throw new NotImplementedException();
             return Result.Succeeded;
         }
-        public string ShowMessage(List<string> listAll)
-        {
-            foreach (string item in listAll)
-            {
-                Debug.Print(item);
-                MessageBox.Show(item);
-            }
-            return "completed";
-        }
+
     }
 }
