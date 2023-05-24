@@ -70,10 +70,11 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="01_TestMessage.cs" />
+    <Compile Include="Commands\00_MainAddinStructure.cs" />
+    <Compile Include="Commands\01_TestMessage.cs" />
     <Compile Include="Analysis.cs" />
     <Compile Include="App.cs" />
-    <Compile Include="Command.cs" />
+    <Compile Include="Commands\Command.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
