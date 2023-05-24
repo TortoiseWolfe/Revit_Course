@@ -26,7 +26,21 @@ namespace Revit_Course
 
             //Selection sel = uidoc.Selection;
             
-            MessageBox.Show("Revit Course 01 Test Message");
+            string str = "Revit Course 01 Test Message";
+            double num = .1;
+            int i = 1;
+            string str2 = "t1|t2|t3";
+            List<string> listAll = new List<string>();
+            listAll.Add(str);
+            listAll.Add(num.ToString());
+            listAll.Add(i.ToString());
+            listAll.Add(str2);
+
+            foreach (string item in listAll)
+            {
+                Debug.Print(item);
+                MessageBox.Show(item);
+            }
 
             //throw new NotImplementedException();
             return Result.Succeeded;
