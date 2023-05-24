@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>Command Revit_Course</Text>
+    <Description>Some description for Revit_Course</Description>
+    <Assembly>C:\Users\JonPo\source\repos\TortoiseWolfe\Revit_Course\bin\x64\Debug\Revit_Course.dll</Assembly>
+    <FullClassName>Revit_Course.Command</FullClassName>
+    <ClientId>ba7cd68e-173b-4e03-940c-6916e02bc5fe</ClientId>
+    <VendorId>com.TrinamDesign</VendorId>
+    <VendorDescription>Drafting @, http://TrinamDesign.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>Application Revit_Course</Name>
+    <Assembly>C:\Users\JonPo\source\repos\TortoiseWolfe\Revit_Course\bin\x64\Debug\Revit_Course.dll</Assembly>
+    <FullClassName>Revit_Course.App</FullClassName>
+    <ClientId>05b8474e-ccbe-4738-b5e8-272c514876ad</ClientId>
+    <VendorId>com.TrinamDesign</VendorId>
+    <VendorDescription>Drafting @, http://TrinamDesign.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>
