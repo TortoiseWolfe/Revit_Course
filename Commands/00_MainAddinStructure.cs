@@ -22,13 +22,16 @@ namespace Revit_Course
             UIApplication uiapp = commandData.Application;
             Document doc = uiapp.ActiveUIDocument.Document;
             Selection sel = uiapp.ActiveUIDocument.Selection;
+            Reference pickRef = null;
+            Element Selected = null;
             // Extraction
             // Analysis
 
             // Creation
             Transaction tx = new Transaction(doc);
             tx.Start("Transaction Name");
-
+            pickRef = sel.PickObject(ObjectType.Element, "Select an element");
+            Selected = doc.GetElement(pickRef);
             // Creation Process
             // Modification
             // Transaction
