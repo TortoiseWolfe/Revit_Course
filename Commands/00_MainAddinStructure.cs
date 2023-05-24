@@ -16,27 +16,23 @@ namespace Revit_Course
     [Regeneration(RegenerationOption.Manual)]
     internal class _00_MainAddinStructure:IExternalCommand
     {
-        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
+        public Result Execute(
+            ExternalCommandData commandData,
+            ref string message,
+            ElementSet elements)
         {
             // Selection
             UIApplication uiapp = commandData.Application;
             Document doc = uiapp.ActiveUIDocument.Document;
-            Selection sel = uiapp.ActiveUIDocument.Selection;
-            Reference pickRef = null;
-            Element Selected = null;
-            // Extraction
-            // Analysis
+            Element SelectedElement = Extraction.singleElementSelection(uiapp);
 
-            // Creation
-            Transaction tx = new Transaction(doc);
-            tx.Start("Transaction Name");
-            pickRef = sel.PickObject(ObjectType.Element, "Select an element");
-            Selected = doc.GetElement(pickRef);
-            // Creation Process
-            // Modification
-            // Transaction
-            // Return
-            tx.Commit();
+            // Analysis
+            MessageBox.Show(
+                "Selected Element: " + 
+                SelectedElement.Category.Name + 
+                ":|:" + 
+                SelectedElement.Id.ToString());
+
             return Result.Succeeded;
         }
 
