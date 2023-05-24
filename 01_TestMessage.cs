@@ -21,9 +21,7 @@ namespace Revit_Course
             //UIApplication uiapp = commandData.Application;
             //UIDocument uidoc = uiapp.ActiveUIDocument;
             //Application app = uiapp
-
             //Document doc = uidoc.Document;
-
             //Selection sel = uidoc.Selection;
             
             string str = "Revit Course 01 Test Message";
@@ -36,14 +34,19 @@ namespace Revit_Course
             listAll.Add(i.ToString());
             listAll.Add(str2);
 
+            MessageBox.Show(ShowMessage(listAll));
+
+            //throw new NotImplementedException();
+            return Result.Succeeded;
+        }
+        public string ShowMessage(List<string> listAll)
+        {
             foreach (string item in listAll)
             {
                 Debug.Print(item);
                 MessageBox.Show(item);
             }
-
-            //throw new NotImplementedException();
-            return Result.Succeeded;
+            return "completed";
         }
     }
 }
