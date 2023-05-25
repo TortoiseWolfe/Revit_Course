@@ -14,7 +14,7 @@ namespace Revit_Course
 {
     internal class Extraction
     {
-        public static Element singleElementSelection(UIApplication uiapp)
+        public static Element SingleElementSelection(UIApplication uiapp)
         {
 
         Document doc = uiapp.ActiveUIDocument.Document;
@@ -43,7 +43,7 @@ namespace Revit_Course
             tx.Commit();
             return Selected;
         }
-        public static List<Element> multipleElementSelection(UIApplication uiapp)
+        public static List<Element> MultipleElementSelection(UIApplication uiapp)
         {
             List<Element> allSelected = new List<Element>();
             Document doc = uiapp.ActiveUIDocument.Document;
@@ -74,7 +74,7 @@ namespace Revit_Course
             tx.Commit();
             return allSelected;
         }
-        public static List<Element> multipleStructuralColumnElementSelection(UIApplication uiapp)
+        public static List<Element> MultipleStructuralColumnElementSelection(UIApplication uiapp)
         {
             List<Element> allSelected = new List<Element>();
             Document doc = uiapp.ActiveUIDocument.Document;
@@ -122,7 +122,7 @@ namespace Revit_Course
                 return false;
             }
         }
-        public static List<FamilyInstance> getAllFamilyInsancesOfCategory(Document doc, BuiltInCategory category)
+        public static List<FamilyInstance> GetAllFamilyInsancesOfCategory(Document doc, BuiltInCategory category)
         {
             List<FamilyInstance> allFamInstances = new List<FamilyInstance>();
             FilteredElementCollector collector = new FilteredElementCollector(doc).OfCategory(category).WhereElementIsNotElementType();
@@ -138,7 +138,7 @@ namespace Revit_Course
             }
             return allFamInstances;
         }
-        public static List<FamilySymbol> getAllFamilySymbolsOfCategory(Document doc, BuiltInCategory category)
+        public static List<FamilySymbol> GetAllFamilySymbolsOfCategory(Document doc, BuiltInCategory category)
         {
             List<FamilySymbol> allFamSymbols = new List<FamilySymbol>();
             FilteredElementCollector collector = new FilteredElementCollector(doc).OfCategory(category).OfClass(typeof(FamilySymbol));
@@ -154,8 +154,7 @@ namespace Revit_Course
             }
             return allFamSymbols;
         }
-
-        public static List<FamilySymbol> getAllFamilySymbolsOfCategoryFamilyName(Document doc, BuiltInCategory category, string familyName)
+        public static List<FamilySymbol> GetAllFamilySymbolsOfCategoryFamilyName(Document doc, BuiltInCategory category, string familyName)
         {
             List<FamilySymbol> allFamSymbols = new List<FamilySymbol>();
             FilteredElementCollector collector = new FilteredElementCollector(doc).OfCategory(category).OfClass(typeof(FamilySymbol));
@@ -172,8 +171,7 @@ namespace Revit_Course
             }
             return allFamSymbols;
         }
-
-        public static List<ElementType> getAllElementTpyesOfCategory(Document doc, BuiltInCategory category)
+        public static List<ElementType> GetAllElementTpyesOfCategory(Document doc, BuiltInCategory category)
         {
             List<ElementType> allElementTypes = new List<ElementType>();
             FilteredElementCollector collector = new FilteredElementCollector(doc).OfCategory(category).WhereElementIsElementType();
@@ -188,6 +186,23 @@ namespace Revit_Course
                 */
             }
             return allElementTypes;
+        }
+
+        public static List<Level> Levels(Document doc)
+        {
+            List<Level> allLevels = new List<Level>();
+            FilteredElementCollector collector = new FilteredElementCollector(doc).OfClass(typeof(Level));
+            FilteredElementIdIterator famIterator = collector.GetElementIdIterator();
+            famIterator.Reset();
+            while (famIterator.MoveNext())
+            {
+                ElementId famItId = famIterator.Current;
+                Level famSymbol = doc.GetElement(famItId) as Level;
+                allLevels.Add(famSymbol);
+                /*
+                 *                */
+            }
+            return allLevels;
         }
     }
 }
