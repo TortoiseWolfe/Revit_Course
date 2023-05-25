@@ -39,6 +39,15 @@ namespace Revit_Course
             }
             //return "completed";
         }
+
+        internal static void ShowElementTypesData(List<ElementType> allColumnsElementTypes)
+        {
+            foreach (ElementType item in allColumnsElementTypes)
+            {
+                MessageBox.Show(item.FamilyName + " | " + item.Name);
+            }
+            throw new NotImplementedException();
+        }
         //Analysis.ShowFamilySymbolData(allColumnsfamilySymbols);
 
     }

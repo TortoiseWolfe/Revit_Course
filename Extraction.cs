@@ -138,7 +138,6 @@ namespace Revit_Course
             }
             return allFamInstances;
         }
-
         public static List<FamilySymbol> getAllFamilySymbolsOfCategory(Document doc, BuiltInCategory category)
         {
             List<FamilySymbol> allFamSymbols = new List<FamilySymbol>();
@@ -154,6 +153,41 @@ namespace Revit_Course
                 */
             }
             return allFamSymbols;
+        }
+
+        public static List<FamilySymbol> getAllFamilySymbolsOfCategoryFamilyName(Document doc, BuiltInCategory category, string familyName)
+        {
+            List<FamilySymbol> allFamSymbols = new List<FamilySymbol>();
+            FilteredElementCollector collector = new FilteredElementCollector(doc).OfCategory(category).OfClass(typeof(FamilySymbol));
+            FilteredElementIdIterator famIterator = collector.GetElementIdIterator();
+            famIterator.Reset();
+            while (famIterator.MoveNext())
+            {
+                ElementId famItId = famIterator.Current;
+                FamilySymbol famSymbol = doc.GetElement(famItId) as FamilySymbol;
+                if (famSymbol.FamilyName == familyName)
+                {
+                    allFamSymbols.Add(famSymbol);
+                }
+            }
+            return allFamSymbols;
+        }
+
+        public static List<ElementType> getAllElementTpyesOfCategory(Document doc, BuiltInCategory category)
+        {
+            List<ElementType> allElementTypes = new List<ElementType>();
+            FilteredElementCollector collector = new FilteredElementCollector(doc).OfCategory(category).WhereElementIsElementType();
+            FilteredElementIdIterator famIterator = collector.GetElementIdIterator();
+            famIterator.Reset();
+            while (famIterator.MoveNext())
+            {
+                ElementId famItId = famIterator.Current;
+                ElementType famSymbol = doc.GetElement(famItId) as ElementType;
+                allElementTypes.Add(famSymbol);
+                /*
+                */
+            }
+            return allElementTypes;
         }
     }
 }
