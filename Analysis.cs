@@ -30,5 +30,16 @@ namespace Revit_Course
             }
             //return "completed";
         }
+        public static void ShowFamilySymbolsData(List<FamilySymbol> listOfElements)
+        {
+            foreach (FamilySymbol item in listOfElements)
+            {
+                //Debug.Print(item);
+                MessageBox.Show(item.FamilyName + " | " + item.Name);
+            }
+            //return "completed";
+        }
+        //Analysis.ShowFamilySymbolData(allColumnsfamilySymbols);
+
     }
 }

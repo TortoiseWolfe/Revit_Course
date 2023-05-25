@@ -122,7 +122,6 @@ namespace Revit_Course
                 return false;
             }
         }
-
         public static List<FamilyInstance> getAllFamilyInsancesOfCategory(Document doc, BuiltInCategory category)
         {
             List<FamilyInstance> allFamInstances = new List<FamilyInstance>();
@@ -135,24 +134,26 @@ namespace Revit_Course
                 FamilyInstance famInstance = famIterator.Current as FamilyInstance;
                 allFamInstances.Add(famInstance);
                 /*
-                if (famInstance != null)
-                {
-                allFamInstances.Add(famInstance);
-                }
                 */
             }
-
-            /*
-            foreach (Element elem in collector)
-                {
-                    FamilyInstance instance = elem as FamilyInstance;
-                    if (instance != null)
-                    {
-                        allFamInstances.Add(instance);
-                    }
-                }
-            */
             return allFamInstances;
+        }
+
+        public static List<FamilySymbol> getAllFamilySymbolsOfCategory(Document doc, BuiltInCategory category)
+        {
+            List<FamilySymbol> allFamSymbols = new List<FamilySymbol>();
+            FilteredElementCollector collector = new FilteredElementCollector(doc).OfCategory(category).OfClass(typeof(FamilySymbol));
+            FilteredElementIdIterator famIterator = collector.GetElementIdIterator();
+            famIterator.Reset();
+            while (famIterator.MoveNext())
+            {
+                ElementId famItId = famIterator.Current;
+                FamilySymbol famSymbol = doc.GetElement(famItId) as FamilySymbol;
+                allFamSymbols.Add(famSymbol);
+                /*
+                */
+            }
+            return allFamSymbols;
         }
     }
 }

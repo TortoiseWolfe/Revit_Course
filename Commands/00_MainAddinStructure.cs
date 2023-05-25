@@ -26,7 +26,7 @@ namespace Revit_Course
             Document doc = uiapp.ActiveUIDocument.Document;
             //List<Element> SelectedElements = Extraction.multipleStructuralColumnElementSelection(uiapp);
             List<FamilyInstance> allColumns = Extraction.getAllFamilyInsancesOfCategory(doc, BuiltInCategory.OST_StructuralColumns);
-
+            List<FamilySymbol> allColumnsfamilySymbols = Extraction.getAllFamilySymbolsOfCategory(doc, BuiltInCategory.OST_StructuralColumns);
         //Element - > FamilyInstance
         //ElementType - > FamilyType - > FamilySymbol
             // Analysis
@@ -37,6 +37,7 @@ namespace Revit_Course
             //    SelectedElement.Id.ToString());
 //          Analysis.ShowElementsData(SelectedElements);
             Analysis.ShowFamilyInstanceData(allColumns);
+            Analysis.ShowFamilySymbolsData(allColumnsfamilySymbols);
             return Result.Succeeded;
         }
 
