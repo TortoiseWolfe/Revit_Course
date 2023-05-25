@@ -43,7 +43,6 @@ namespace Revit_Course
             tx.Commit();
             return Selected;
         }
-
         public static List<Element> multipleElementSelection(UIApplication uiapp)
         {
             List<Element> allSelected = new List<Element>();
@@ -75,6 +74,54 @@ namespace Revit_Course
             tx.Commit();
             return allSelected;
         }
+        public static List<Element> multipleStructuralColumnElementSelection(UIApplication uiapp)
+        {
+            List<Element> allSelected = new List<Element>();
+            Document doc = uiapp.ActiveUIDocument.Document;
+            Selection sel = uiapp.ActiveUIDocument.Selection;
+            ISelectionFilter structuralColumnFilter = new StructuralColumnSelectionFilter();
+            Reference pickRef = null;
+            Boolean flag = true;
+            // Extraction
+            // Analysis
 
+            // Creation
+            Transaction tx = new Transaction(doc);
+            tx.Start("Transaction Name");
+            while (flag)
+                try
+                {
+                    pickRef = sel.PickObject(ObjectType.Element, structuralColumnFilter, "Select an element");
+                    Element Selected = doc.GetElement(pickRef);
+                    allSelected.Add(Selected);
+                    // Creation Process
+                    // Modification
+                    // Transaction
+                    // Return
+                }
+                catch (Exception ex)
+                {
+                    flag = false;
+                }
+            tx.Commit();
+            return allSelected;
+        }
+    }
+
+    public class StructuralColumnSelectionFilter : ISelectionFilter
+    {
+        public bool AllowElement(Element elem)
+        {
+            if (elem.Category.Name == "Structural Columns")
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool AllowReference(Reference reference, XYZ position)
+        {
+            return false;
+        }
     }
 }

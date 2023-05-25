@@ -24,7 +24,7 @@ namespace Revit_Course
             // Selection
             UIApplication uiapp = commandData.Application;
             Document doc = uiapp.ActiveUIDocument.Document;
-            List<Element> SelectedElements = Extraction.multipleElementSelection(uiapp);
+            List<Element> SelectedElements = Extraction.multipleStructuralColumnElementSelection(uiapp);
 
             // Analysis
             //MessageBox.Show(
