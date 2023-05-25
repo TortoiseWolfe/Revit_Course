@@ -24,15 +24,15 @@ namespace Revit_Course
             // Selection
             UIApplication uiapp = commandData.Application;
             Document doc = uiapp.ActiveUIDocument.Document;
-            Element SelectedElement = Extraction.singleElementSelection(uiapp);
+            List<Element> SelectedElements = Extraction.multipleElementSelection(uiapp);
 
             // Analysis
-            MessageBox.Show(
-                "Selected Element: " + 
-                SelectedElement.Category.Name + 
-                ":|:" + 
-                SelectedElement.Id.ToString());
-
+            //MessageBox.Show(
+            //    "Selected Element: " + 
+            //    SelectedElement.Category.Name + 
+            //    ":|:" + 
+            //    SelectedElement.Id.ToString());
+            Analysis.ShowElementsData(SelectedElements);
             return Result.Succeeded;
         }
 
