@@ -21,5 +21,14 @@ namespace Revit_Course
             }
             //return "completed";
         }
+        public static void ShowFamilyInstanceData(List<FamilyInstance> listOfElements)
+        {
+            foreach (FamilyInstance item in listOfElements)
+            {
+                //Debug.Print(item);
+                MessageBox.Show(item.Category.Name + " | " + item.Id.ToString());
+            }
+            //return "completed";
+        }
     }
 }

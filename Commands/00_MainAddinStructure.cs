@@ -24,15 +24,19 @@ namespace Revit_Course
             // Selection
             UIApplication uiapp = commandData.Application;
             Document doc = uiapp.ActiveUIDocument.Document;
-            List<Element> SelectedElements = Extraction.multipleStructuralColumnElementSelection(uiapp);
+            //List<Element> SelectedElements = Extraction.multipleStructuralColumnElementSelection(uiapp);
+            List<FamilyInstance> allColumns = Extraction.getAllFamilyInsancesOfCategory(doc, BuiltInCategory.OST_StructuralColumns);
 
+        //Element - > FamilyInstance
+        //ElementType - > FamilyType - > FamilySymbol
             // Analysis
             //MessageBox.Show(
             //    "Selected Element: " + 
             //    SelectedElement.Category.Name + 
             //    ":|:" + 
             //    SelectedElement.Id.ToString());
-            Analysis.ShowElementsData(SelectedElements);
+//          Analysis.ShowElementsData(SelectedElements);
+            Analysis.ShowFamilyInstanceData(allColumns);
             return Result.Succeeded;
         }
 

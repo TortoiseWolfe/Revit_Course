@@ -106,22 +106,53 @@ namespace Revit_Course
             tx.Commit();
             return allSelected;
         }
-    }
-
-    public class StructuralColumnSelectionFilter : ISelectionFilter
-    {
-        public bool AllowElement(Element elem)
+        public class StructuralColumnSelectionFilter : ISelectionFilter
         {
-            if (elem.Category.Name == "Structural Columns")
+            public bool AllowElement(Element elem)
             {
-                return true;
+                if (elem.Category.Name == "Structural Columns")
+                {
+                    return true;
+                }
+                return false;
             }
-            return false;
+
+            public bool AllowReference(Reference reference, XYZ position)
+            {
+                return false;
+            }
         }
 
-        public bool AllowReference(Reference reference, XYZ position)
+        public static List<FamilyInstance> getAllFamilyInsancesOfCategory(Document doc, BuiltInCategory category)
         {
-            return false;
+            List<FamilyInstance> allFamInstances = new List<FamilyInstance>();
+            FilteredElementCollector collector = new FilteredElementCollector(doc).OfCategory(category).WhereElementIsNotElementType();
+            FilteredElementIterator famIterator = collector.GetElementIterator();
+            famIterator.Reset();
+            while (famIterator.MoveNext())
+            {
+                Element famItId = famIterator.Current as Element;
+                FamilyInstance famInstance = famIterator.Current as FamilyInstance;
+                allFamInstances.Add(famInstance);
+                /*
+                if (famInstance != null)
+                {
+                allFamInstances.Add(famInstance);
+                }
+                */
+            }
+
+            /*
+            foreach (Element elem in collector)
+                {
+                    FamilyInstance instance = elem as FamilyInstance;
+                    if (instance != null)
+                    {
+                        allFamInstances.Add(instance);
+                    }
+                }
+            */
+            return allFamInstances;
         }
     }
 }
