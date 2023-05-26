@@ -54,9 +54,6 @@ namespace Revit_Course
             {
                 MessageBox.Show(item.FamilyName + " | " + item.Name);
             }
-            throw new NotImplementedException();
         }
-        //Analysis.ShowFamilySymbolData(allColumnsfamilySymbols);
-
     }
 }

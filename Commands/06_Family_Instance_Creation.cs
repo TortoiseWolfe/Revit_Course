@@ -36,8 +36,10 @@ namespace Revit_Course
                 allColumnsfamilySymbols[0].Activate();
                 doc.Regenerate();
             }
-                tx.Commit();
-                return Result.Succeeded;
+            // Creation Process
+            FamilyInstance newFamilyInstance = doc.Create.NewFamilyInstance(new XYZ(0, 0, 0), allColumnsfamilySymbols[0], allLevels[0], StructuralType.Column);
+            tx.Commit();
+            return Result.Succeeded;
         }
     }
 }

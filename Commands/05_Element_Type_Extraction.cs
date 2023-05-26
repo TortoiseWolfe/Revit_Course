@@ -9,6 +9,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 using Autodesk.Revit.DB.Structure;
+
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 #endregion
 namespace Revit_Course
 {
@@ -16,10 +20,7 @@ namespace Revit_Course
     [Regeneration(RegenerationOption.Manual)]
     internal class _05_Element_Type_Extraction:IExternalCommand
     {
-        public Result Execute(
-            ExternalCommandData commandData,
-            ref string message,
-            ElementSet elements)
+        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             // Selection
             UIApplication uiapp = commandData.Application;

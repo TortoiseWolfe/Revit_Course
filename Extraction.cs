@@ -180,7 +180,7 @@ namespace Revit_Course
             while (famIterator.MoveNext())
             {
                 ElementId famItId = famIterator.Current;
-                ElementType famSymbol = doc.GetElement(famItId) as ElementType;
+                FamilySymbol famSymbol = doc.GetElement(famItId) as FamilySymbol;
                 allElementTypes.Add(famSymbol);
                 /*
                 */

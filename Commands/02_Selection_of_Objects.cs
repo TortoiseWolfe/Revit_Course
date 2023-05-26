@@ -31,8 +31,6 @@ namespace Revit_Course
             Analysis.ShowElementsData(SelectedElements);
 
             // Creation
-            Transaction tx = new Transaction(doc);
-            tx.Start("Transaction Name");
             return Result.Succeeded;
         }
     }
