@@ -27,9 +27,11 @@ namespace Revit_Course
             Element selected = Extraction.SingleElementSelection(uiapp);
             ElementId familyTypeId = selected.GetTypeId();
             FamilySymbol famSymb = doc.GetElement(familyTypeId) as FamilySymbol;
-
-            List<FamilySymbol> allColumnsfamilySymbols = Extraction.GetAllFamilySymbolsOfCategoryFamilyName(doc, BuiltInCategory.OST_StructuralColumns, "Concrete-Rectangular-Column");
             Level level = doc.GetElement(selected.LevelId) as Level;
+            List<FamilySymbol> allColumnsfamilySymbols = Extraction.GetAllFamilySymbolsOfCategoryFamilyName(
+                doc, 
+                BuiltInCategory.OST_StructuralColumns,
+                "Concrete-Rectangular-Column");
             //foreach (FamilySymbol item in allColumnsfamilySymbols)
             //{
             //    if(item.FamilyName == famSymb.FamilyName)
@@ -37,8 +39,15 @@ namespace Revit_Course
             //        famSymb= item;
             //    }
             //}
-            //List<Level> allLevels = Extraction.Levels(doc);
-            
+            List<Level> allLevels = Extraction.Levels(doc);
+
+            Location loCation = selected.Location;
+            LocationPoint loCationPoint = loCation as LocationPoint;
+            XYZ centerPoint = loCationPoint.Point;
+
+            //LocationCurve locationCurve = selected.Location as LocationCurve;
+            //LocationCurve locationCurve = selected.Location as LocationCurve;
+
             //Element - > FamilyInstance
             //ElementType - > FamilyType - > FamilySymbol
 
@@ -51,10 +60,11 @@ namespace Revit_Course
                 allColumnsfamilySymbols[0].Activate();
             }
             FamilyInstance newColumn = doc.Create.NewFamilyInstance(
-                   new XYZ(0, 0, 0),
+                   centerPoint.Add(new XYZ(3, 0, 0)),
                    allColumnsfamilySymbols[0],
                    level,
                    StructuralType.NonStructural);
+            //     new XYZ(0, 0, 0),
             //     allLevels[0],
 
 
