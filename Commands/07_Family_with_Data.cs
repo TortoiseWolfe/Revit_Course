@@ -28,7 +28,7 @@ namespace Revit_Course
 
             Parameter paraMeter = selected.get_Parameter(BuiltInParameter.INSTANCE_LENGTH_PARAM);
             double length = paraMeter.AsDouble();
-
+            string valUe = selected.LookupParameter("Reference").AsString();
 
             Location loCation = selected.Location;
             LocationPoint loCationPoint = loCation as LocationPoint;
@@ -57,10 +57,11 @@ namespace Revit_Course
                    point,   
                    famSymb,
                    level,
-                   StructuralType.NonStructural);
+                   StructuralType.Column);
                   //centerPoint.Add(new XYZ(length, 0, 0)),
                  //new XYZ(0, 0, 0),
                 // allLevels[0],
+            newColumn.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS).Set(valUe);
                 }
             tx.Commit();
             return Result.Succeeded;
