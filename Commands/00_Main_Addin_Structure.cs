@@ -14,7 +14,7 @@ namespace Revit_Course
 {
     [Transaction(TransactionMode.Manual)]
     [Regeneration(RegenerationOption.Manual)]
-    internal class _00_MainAddinStructure:IExternalCommand
+    internal class _00_Main_Addin_Structure:IExternalCommand
     {
         public Result Execute(
             ExternalCommandData commandData,

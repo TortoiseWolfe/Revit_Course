@@ -70,7 +70,13 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\00_MainAddinStructure.cs" />
+    <Compile Include="Commands\02_Selection_of_Objects.cs" />
+    <Compile Include="Commands\03_Instance_Extraction.cs" />
+    <Compile Include="Commands\04_Symbol_Extraction.cs" />
+    <Compile Include="Commands\05_Element_Type_Extraction.cs" />
+    <Compile Include="Commands\06_Family_Instance_Creation.cs" />
+    <Compile Include="Commands\07_Main_Addin_Structure.cs" />
+    <Compile Include="Commands\00_Main_Addin_Structure.cs" />
     <Compile Include="Commands\01_TestMessage.cs" />
     <Compile Include="Analysis.cs" />
     <Compile Include="App.cs" />
