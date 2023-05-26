@@ -79,7 +79,7 @@
     <Compile Include="Commands\00_Main_Addin_Structure.cs" />
     <Compile Include="Commands\01_TestMessage.cs" />
     <Compile Include="Analysis.cs" />
-    <Compile Include="App.cs" />
+    <Compile Include="Commands\App.cs" />
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Extraction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

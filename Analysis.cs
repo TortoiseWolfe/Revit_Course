@@ -12,6 +12,15 @@ namespace Revit_Course
 {
     internal class Analysis
     {
+        public static void ShowMessage(List<string> allStrings)
+        {
+            foreach (string strinG in allStrings)
+            {
+                MessageBox.Show(strinG);
+
+            }
+            //  return "Completed";
+        }
         public static void ShowElementsData(List<Element> listOfElements)
         {
             foreach (Element item in listOfElements)
@@ -39,7 +48,6 @@ namespace Revit_Course
             }
             //return "completed";
         }
-
         internal static void ShowElementTypesData(List<ElementType> allColumnsElementTypes)
         {
             foreach (ElementType item in allColumnsElementTypes)

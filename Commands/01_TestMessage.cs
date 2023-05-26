@@ -34,7 +34,7 @@ namespace Revit_Course
             listAll.Add(i.ToString());
             listAll.Add(str2);
 
-            // MessageBox.Show(Analysis.ShowMessage(listAll));
+            Analysis.ShowMessage(listAll);
 
             //throw new NotImplementedException();
             return Result.Succeeded;
