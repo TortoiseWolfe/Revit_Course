@@ -14,7 +14,7 @@ namespace Revit_Course
 {
     [Transaction(TransactionMode.Manual)]
     [Regeneration(RegenerationOption.Manual)]
-    internal class _07_Main_Addin_Structure:IExternalCommand
+    internal class _07_Family_with_Data:IExternalCommand
     {
         public Result Execute(
             ExternalCommandData commandData,
@@ -24,24 +24,23 @@ namespace Revit_Course
             // Selection
             UIApplication uiapp = commandData.Application;
             Document doc = uiapp.ActiveUIDocument.Document;
-            //List<Element> SelectedElements = Extraction.multipleStructuralColumnElementSelection(uiapp);
-            //List<FamilyInstance> allColumns = Extraction.getAllFamilyInsancesOfCategory(doc, BuiltInCategory.OST_StructuralColumns);
-//          List<FamilySymbol> allColumnsfamilySymbols = Extraction.getAllFamilySymbolsOfCategory(doc, BuiltInCategory.OST_StructuralColumns);
+            Element selected = Extraction.SingleElementSelection(uiapp);
+            ElementId familyTypeId = selected.GetTypeId();
+            FamilySymbol famSymb = doc.GetElement(familyTypeId) as FamilySymbol;
+
             List<FamilySymbol> allColumnsfamilySymbols = Extraction.GetAllFamilySymbolsOfCategoryFamilyName(doc, BuiltInCategory.OST_StructuralColumns, "Concrete-Rectangular-Column");
-            //List<ElementType> allColumnsElementTypes = Extraction.getAllElementTpyesOfCategory(doc, BuiltInCategory.OST_StructuralColumns);
-            List<Level> allLevels = Extraction.Levels(doc);
+            Level level = doc.GetElement(selected.LevelId) as Level;
+            //foreach (FamilySymbol item in allColumnsfamilySymbols)
+            //{
+            //    if(item.FamilyName == famSymb.FamilyName)
+            //    {
+            //        famSymb= item;
+            //    }
+            //}
+            //List<Level> allLevels = Extraction.Levels(doc);
+            
             //Element - > FamilyInstance
             //ElementType - > FamilyType - > FamilySymbol
-            // Analysis
-            //MessageBox.Show(
-            //    "Selected Element: " + 
-            //    SelectedElement.Category.Name + 
-            //    ":|:" + 
-            //    SelectedElement.Id.ToString());
-            //          Analysis.ShowElementsData(SelectedElements);
-  //          Analysis.ShowFamilyInstanceData(allColumns);
-            Analysis.ShowFamilySymbolsData(allColumnsfamilySymbols);
-  //          Analysis.ShowElementTypesData(allColumnsElementTypes);
 
             // Creation
             // Transaction
@@ -51,15 +50,12 @@ namespace Revit_Course
             {
                 allColumnsfamilySymbols[0].Activate();
             }
-            //FamilyInstance newColumn = doc.Create.NewFamilyInstance(
-            //                   new XYZ(0, 0, 0),
-            //                   allColumnsfamilySymbols[0],
-            //                   StructuralType.NonStructural);
             FamilyInstance newColumn = doc.Create.NewFamilyInstance(
                    new XYZ(0, 0, 0),
                    allColumnsfamilySymbols[0],
-                   allLevels[0],
+                   level,
                    StructuralType.NonStructural);
+            //     allLevels[0],
 
 
             try
