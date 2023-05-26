@@ -32,6 +32,17 @@ namespace Revit_Course
             List<Level> allLevels = Extraction.Levels(doc);
             //Element - > FamilyInstance
             //ElementType - > FamilyType - > FamilySymbol
+
+            //List<FamilySymbol> allColumnsfamilySymbols = Extraction.GetAllFamilySymbolsOfCategoryFamilyName(doc,BuiltInCategory.OST_StructuralColumns,"Concrete-Rectangular-Column");
+            //foreach (FamilySymbol item in allColumnsfamilySymbols)
+            //{
+            //    if(item.FamilyName == famSymb.FamilyName)
+            //    {
+            //        famSymb= item;
+            //    }
+            //}
+
+
             // Analysis
             //MessageBox.Show(
             //    "Selected Element: " + 
@@ -39,7 +50,7 @@ namespace Revit_Course
             //    ":|:" + 
             //    SelectedElement.Id.ToString());
             //          Analysis.ShowElementsData(SelectedElements);
-  //          Analysis.ShowFamilyInstanceData(allColumns);
+            //          Analysis.ShowFamilyInstanceData(allColumns);
             Analysis.ShowFamilySymbolsData(allColumnsfamilySymbols);
   //          Analysis.ShowElementTypesData(allColumnsElementTypes);
 
