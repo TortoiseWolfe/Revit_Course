@@ -35,7 +35,7 @@ namespace Revit_Course
             XYZ centerPoint = loCationPoint.Point;
 
             List<XYZ> allPoints = new List<XYZ>();
-            for (int i = 1; i < 3; i++)
+            for (int i = 1; i < 7; i++)
             {
                 XYZ point = centerPoint.Add(new XYZ(length * i, 0, 0));
                 allPoints.Add(point);
@@ -61,7 +61,8 @@ namespace Revit_Course
                   //centerPoint.Add(new XYZ(length, 0, 0)),
                  //new XYZ(0, 0, 0),
                 // allLevels[0],
-            newColumn.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS).Set(valUe);
+            newColumn.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS).Set("valued One");
+            newColumn.LookupParameter("Reference").Set(valUe);
                 }
             tx.Commit();
             return Result.Succeeded;
