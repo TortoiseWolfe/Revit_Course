@@ -58,6 +58,7 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="RevitAPI">
       <HintPath>$(ProgramW6432)\Autodesk\Revit 2023\RevitAPI.dll</HintPath>
       <Private>False</Private>
@@ -85,10 +86,29 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\config.png" />
+    <EmbeddedResource Include="Resources\icons8-enterprise-nx-01-36.png" />
+    <EmbeddedResource Include="Resources\icons8-surface-16.png" />
+    <EmbeddedResource Include="Resources\icons8-surface-32.png" />
+    <EmbeddedResource Include="Resources\icons8-tricorder-32.png" />
+    <EmbeddedResource Include="Resources\icons8-voyager-badge-16.png" />
+    <EmbeddedResource Include="Resources\icons8-voyager-badge-32.png" />
+    <EmbeddedResource Include="Resources\icons8-window-36.png" />
+    <EmbeddedResource Include="Resources\icons8-window-48.png" />
+    <EmbeddedResource Include="Resources\measure %281%29.png" />
+    <EmbeddedResource Include="Resources\measure %282%29.png" />
+    <EmbeddedResource Include="Resources\Trinam_Design_16.png" />
+    <EmbeddedResource Include="Resources\Trinam_Design_32.png" />
+    <EmbeddedResource Include="Resources\UC-1acefdd1-8d7a-46aa-9f71-256d8233fda3.jpg" />
+    <EmbeddedResource Include="Resources\UC-8a6f2126-05d6-44e5-aa95-4b81206c1a4a.jpg" />
+    <EmbeddedResource Include="Resources\windows.png" />
     <Content Include="Revit_Course.addin" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trinam_32.xcf" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
