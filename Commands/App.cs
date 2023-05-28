@@ -23,23 +23,26 @@ namespace Revit_Course
             aPP.CreateRibbonTab(tabName);
 
             // Add a new ribbon panel
-            RibbonPanel ribbonPanel = aPP.CreateRibbonPanel(tabName, "Dimensioning");
+            RibbonPanel ribbonPanel = aPP.CreateRibbonPanel(tabName, "API Course");
+            RibbonPanel ribbonPanel_02 = aPP.CreateRibbonPanel(tabName, "Dimensioning");
 
             // Get dll assembly path
             string thisAssemblyPath = Assembly.GetExecutingAssembly().Location;
 
             // Create push button data
-            CreatePushButton(thisAssemblyPath, ribbonPanel, "Message" + "\r\n" + "Test", "_01_TestMessage", "config.png", "Trinam_Design_16.png", "Test Message");
-            CreatePushButton(thisAssemblyPath, ribbonPanel, "Object" + "\r\n" + "Selection", "_02_Selection_of_Objects", "Trinam_Design_32.png", "Trinam_Design_16.png", "Selection of Objects");
-            CreatePushButton(thisAssemblyPath, ribbonPanel, "Instance" + "\r\n" + "Extraction", "_03_Instance_Extraction", "Trinam_Design_32.png", "Trinam_Design_16.png", "Instance Extraction");
-            CreatePushButton(thisAssemblyPath, ribbonPanel, "Symbol" + "\r\n" + "Extraction", "_04_Symbol_Extraction", "Trinam_Design_32.png", "Trinam_Design_16.png", "Symbol Extraction");
-            CreatePushButton(thisAssemblyPath, ribbonPanel, "Element Type" + "\r\n" + "Extraction", "_05_Element_Type_Extraction", "Trinam_Design_32.png", "Trinam_Design_16.png", "Elment Type Extraction");
-            CreatePushButton(thisAssemblyPath, ribbonPanel, "create column" + "\r\n" + "at 0,0,0", "_06_Family_Instance_Creation", "Trinam_Design_32.png", "Trinam_Design_16.png", "Family Instance Creation");
-            CreatePushButton(thisAssemblyPath, ribbonPanel, "create 10 Columns" + "\r\n" + "with Data", "_07_Family_with_Data", "icons8-enterprise-nx-01-36.png", "icons8-voyager-badge-16.png", "Family with Data");
-            //CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a toolTip Message", "_08_MacroRecorder", "player_record.png", "player_record.png", "cmdText");
-            //CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a toolTip Message", "_09_ScopeBox", "Trinam_Design_32.png", "Trinam_Design_16.png", "cmdText");
-            //CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a toolTip Message", "_10_CurtainWallSelection", "Trinam_Design_32.png", "Trinam_Design_16.png", "cmdText");
-            //CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a toolTip Message", "_11_CurtainWallDimensioning", "Trinam_Design_32.png", "Trinam_Design_16.png","cmdText");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Message" + "\r\n" + "Test", "_01_TestMessage", "config.png", "windows.png", "Test Message", "This is a long description for the command");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Object" + "\r\n" + "Selection", "_02_Selection_of_Objects", "Trinam_Design_32.png", "windows.png", "Selection" + "\r\n" + "of Objects", "This is a long description for the command");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Instance" + "\r\n" + "Extraction", "_03_Instance_Extraction", "Trinam_Design_32.png", "windows.png", "Instance" + "\r\n" + "Extraction", "This is a long description for the command");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Symbol" + "\r\n" + "Extraction", "_04_Symbol_Extraction", "Trinam_Design_32.png", "windows.png", "Symbol" + "\r\n" + "Extraction", "This is a long description for the command");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Element Type" + "\r\n" + "Extraction", "_05_Element_Type_Extraction", "Trinam_Design_32.png", "windows.png", "Element Type" + "\r\n" + "Extraction", "This is a long description for the command");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "create column" + "\r\n" + "at 0,0,0", "_06_Family_Instance_Creation", "Trinam_Design_32.png", "windows.png", "Instance" + "\r\n" + " Creation", "This is a long description for the command");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "create 10 Columns" + "\r\n" + "with Data", "_07_Family_with_Data", "icons8-tricorder-32.png", "windows.png", "Family" + "\r\n" + " with Data", "This is a long description for the command");
+            ribbonPanel.AddSeparator();
+            CreatePushButton(thisAssemblyPath, ribbonPanel_02, "Instance" + "" + "\r\n" + "Extraction", "_08_MacroRecorder", "player_record.png", "windows.png", "Macro" + "\r\n" + "Recorder", "This is a long description for the command");
+            CreatePushButton(thisAssemblyPath, ribbonPanel_02, "Instance" + "\r\n" + "Extraction", "_09_ScopeBox", "Trinam_Design_32.png", "windows.png", "Scope" + "\r\n" + "Box", "This is a long description for the command");
+            CreatePushButton(thisAssemblyPath, ribbonPanel_02, "Dimension" + "\r\n" + "by Surface", "_11_Dimensioning_bySurface", "icons8-surface-32.png", "windows.png", "Dimension" + "\r\n" + "by Surface", "Dimension by selecting a Surface");
+            CreatePushButton(thisAssemblyPath, ribbonPanel_02, "CurtainWall" + "\r\n" + "Selection", "_10_CurtainWallSelection", "measure.png", "windows.png", "CurtainWall" + "\r\n" + "Selection", "This is a long description for the command");
+            CreatePushButton(thisAssemblyPath, ribbonPanel_02, "Dimension" + "\r\n" + "by CurtainGrid", "_11_CurtainWallDimensioning", "icons8-voyager-badge-32.png", "windows.png", "CurtainWall" + "\r\n" + "Dimension", "This is a long description for the command");
         }
         public void CreatePushButton(
             string AssemblyPath, 
@@ -47,8 +50,9 @@ namespace Revit_Course
             string toolTipText, 
             string commandName, 
             string largeImageFileName, 
-            string smallImageFileName,
-            string cmdText)
+            string toolTipImageFileName,
+            string cmdText,
+            string lngDescription)
         {
             // Create a push button
             PushButtonData A1 = new PushButtonData(
@@ -59,9 +63,13 @@ namespace Revit_Course
 
             PushButton pb1 = ribbonPanel.AddItem(A1) as PushButton;
             pb1.ToolTip = toolTipText;
-            pb1.LongDescription = "This is a long description for the command";
+            pb1.ToolTipImage = PngImageSource("Revit_Course.Resources.toolTipImages." + toolTipImageFileName);
+            pb1.LongDescription = lngDescription;
             pb1.LargeImage = PngImageSource("Revit_Course.Resources." + largeImageFileName);
+//          pb1.Enabled = true;
+
         }
+
         public Result OnStartup(UIControlledApplication aPP)
         {
             AddRibbonPanel(aPP);

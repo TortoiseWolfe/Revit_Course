@@ -187,7 +187,6 @@ namespace Revit_Course
             }
             return allElementTypes;
         }
-
         public static List<Level> Levels(Document doc)
         {
             List<Level> allLevels = new List<Level>();
