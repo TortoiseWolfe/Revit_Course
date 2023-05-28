@@ -98,15 +98,15 @@
     <EmbeddedResource Include="Resources\icons8-voyager-badge-32.png" />
     <EmbeddedResource Include="Resources\icons8-window-36.png" />
     <EmbeddedResource Include="Resources\icons8-window-48.png" />
-    <EmbeddedResource Include="Resources\measure.png" />
-    <EmbeddedResource Include="Resources\measure %282%29.png" />
+    <EmbeddedResource Include="Resources\toolTipImages\measure.png" />
+    <EmbeddedResource Include="Resources\toolTipImages\measure %282%29.png" />
     <EmbeddedResource Include="Resources\Trinam_Design_16.png" />
     <EmbeddedResource Include="Resources\Trinam_Design_32.png" />
     <EmbeddedResource Include="Resources\UC-1acefdd1-8d7a-46aa-9f71-256d8233fda3.jpg" />
     <EmbeddedResource Include="Resources\UC-8a6f2126-05d6-44e5-aa95-4b81206c1a4a.jpg" />
     <EmbeddedResource Include="Resources\toolTipImages\windows.png" />
     <EmbeddedResource Include="Resources\player_record.png" />
-    <EmbeddedResource Include="Resources\Trinam_96.png" />
+    <EmbeddedResource Include="Resources\toolTipImages\Trinam_96.png" />
     <Content Include="Revit_Course.addin" />
   </ItemGroup>
   <ItemGroup>
