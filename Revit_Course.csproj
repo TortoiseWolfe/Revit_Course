@@ -82,6 +82,9 @@
     <Compile Include="Analysis.cs" />
     <Compile Include="Commands\App.cs" />
     <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\_08_MacroRecorder.cs" />
+    <Compile Include="Commands\_10_CurtainWallSelection.cs" />
+    <Compile Include="Commands\_11_CurtainWallDimensioning.cs" />
     <Compile Include="Extraction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
